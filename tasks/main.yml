@@ -1,0 +1,17 @@
+---
+# tasks file for letsencrypt-systemd
+- Setup LetsEncrypt in {{ letsencrypt_setup_path }}
+  git: repo=http://github.com/letsencrypt/letsencrypt.git dest={{ letsencrypt_setup_path }}
+  become: true
+
+- name: Install Systemd service
+  template: src=letsencrypt.service dest=/etc/systemd/system/letsencrypt.service
+  become: true
+
+- name: Add Systemd Timer
+  copy: src=letsencrypt.timer dest=/etc/systemd/system/letsencrypt.timer
+  become: true
+
+- name: Create directory for renew tasks
+  file: path=/etc/systemd/system/letsencrypt.service.d state=directory
+  become: true

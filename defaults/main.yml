@@ -1,0 +1,6 @@
+---
+# defaults file for letsencrypt-systemd
+letsencrypt_email: certs@example.com
+letsencrypt_setup_path: /opt/letsencrypt
+letsencrypt_domains:
+  - {{ ansible_fqdn }}

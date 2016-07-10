@@ -1,0 +1,13 @@
+---
+# handlers file for letsencrypt-systemd
+
+- name: setup letsencrypt service
+  systemd: 
+    daemon_reload: yes 
+    name: letsencrypt.time 
+    enabled: yes
+
+
+- name: init letsencrypt
+  sh: {{ letsencrypt_setup_path }}/letsencrypt-auto --email {{ letsencrypt_email }} -d {{item}} --agree-tos
+  with_item: {{ letsencrypt_domains }}
