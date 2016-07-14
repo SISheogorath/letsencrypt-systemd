@@ -4,10 +4,16 @@ Lets Encrypt automation with Systemd
 All details of the setup can you read in my blog post:
 https://www.shivering-isles.com/lets-encrypt-renew-all-your-certs-using-systemd/
 
+Important notice
+----------------
+
+This setup requires an already installed apache2 or nginx server.
+So don't forget to setup apache2 or nginx along with this role.
+
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+All variables have a default value but `letsencrypt_email` and `letsencrypt_domains` are very important.
 
 Variabales:
 * letsencrypt_email: The E-Mail you use to register your certificates
