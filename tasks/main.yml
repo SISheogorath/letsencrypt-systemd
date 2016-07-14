@@ -1,6 +1,6 @@
 ---
 # tasks file for letsencrypt-systemd
-- Setup LetsEncrypt in {{ letsencrypt_setup_path }}
+- name: Setup LetsEncrypt in {{ letsencrypt_setup_path }}
   git: repo=http://github.com/letsencrypt/letsencrypt.git dest={{ letsencrypt_setup_path }}
   become: true
 
