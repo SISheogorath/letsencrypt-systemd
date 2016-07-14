@@ -9,5 +9,5 @@
 
 
 - name: init letsencrypt
-  shell: {{ letsencrypt_setup_path }}/letsencrypt-auto --email {{ letsencrypt_email }} -d {{item}} --agree-tos
+  shell: "{{ letsencrypt_setup_path }}/letsencrypt-auto --email {{ letsencrypt_email }} -d {{item}} --agree-tos"
   with_item: {{ letsencrypt_domains }}
